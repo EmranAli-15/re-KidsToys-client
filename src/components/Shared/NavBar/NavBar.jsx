@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Tooltip } from 'react-tooltip';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then(result => { })
+            .catch(error => { })
+    }
     return (
         <div className="navbar shadow-sm px-4 bg-base-200 rounded-lg">
             <div className="navbar-start">
@@ -12,9 +20,6 @@ const NavBar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link>Home</Link></li>
                         <li><Link>All Toys</Link></li>
-                        <li><Link>Add Toys</Link></li>
-                        <li><Link>My Toys</Link></li>
-                        <li><Link>Blogs</Link></li>
                     </ul>
                 </div>
                 <img className='md:h-10 h-6 cursor-pointer' src="https://i.ibb.co/hMVWVZT/logo.png" alt="" />
@@ -23,16 +28,35 @@ const NavBar = () => {
                 <ul className="menu menu-horizontal font-semibold text-gray-500 px-1">
                     <li><Link>Home</Link></li>
                     <li><Link>All Toys</Link></li>
-                    <li><Link to="/addToys">Add Toys</Link></li>
-                    <li><Link>My Toys</Link></li>
+                    {
+                        user && <li><Link to="/addToys">Add Toys</Link></li>
+                    }
+                    {
+                        user && <li><Link>My Toys</Link></li>
+                    }
                     <li><Link>Blogs</Link></li>
                 </ul>
             </div>
-            <div className="avatar navbar-end">
-                <div className="md:w-10 w-8 rounded-full ring ring-primary ring-offset-base-100 cursor-pointer ring-offset-2">
-                    <img src="https://i.ibb.co/hMVWVZT/logo.png" />
-                </div>
+
+            <div className="navbar-end gap-x-6">
+                <Tooltip className='text-white bg-transparent -mr-4' anchorSelect=".my-anchor-element" place="left">
+                    {
+                        user && user.displayName
+                    }
+                </Tooltip>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar -mr-4">
+                    {
+                        user && <div className="w-10 rounded-full">
+                            <a className="my-anchor-element"><img src={user.photoURL} /></a>
+                        </div>
+                    }
+                </label>
+                {
+                    user ? <button onClick={handleLogout} className="btn btn-xs">LogOut</button> :
+                        <button className="btn btn-xs"><Link to="/login">Login</Link></button>
+                }
             </div>
+
         </div>
     );
 };

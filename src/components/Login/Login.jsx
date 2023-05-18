@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import login from '../../assets/login.svg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
+    const { signInUser } = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault();
         const from = event.target;
 
         const email = from.email.value;
         const password = from.password.value;
+
+        signInUser(email, password)
+            .then(result => console.log(result.user))
+            .catch(error => console.log(error.message))
 
         console.log(email, password);
     }
