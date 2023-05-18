@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.my-bg {
-    @apply bg-[#FF3811]
+.my-btn-right {
+    background-color: #FF3811;
+    border-width: 0;
 }
+.my-btn-left {
+    background-color: #e4dddd80;
+    border-width: 0;
+}
+
+/* bg-[#FF3811] */
