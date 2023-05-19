@@ -11,13 +11,13 @@ const SubCategory = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getToy/${'Civil Engineering'}`)
+        fetch(`http://localhost:5000/categoryToy/${'Civil Engineering'}`)
             .then(res => res.json())
             .then(data => setCivil(data))
     }, [])
 
     const handleCategory = (category) => {
-        fetch(`http://localhost:5000/getToy/${category}`)
+        fetch(`http://localhost:5000/categoryToy/${category}`)
             .then(res => res.json())
             .then(data => {
                 if (category === 'Civil Engineering') {

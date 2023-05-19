@@ -27,7 +27,7 @@ const NavBar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal font-semibold text-gray-500 px-1">
                     <li><Link>Home</Link></li>
-                    <li><Link>All Toys</Link></li>
+                    <li><Link to="/allToys">All Toys</Link></li>
                     {
                         user && <li><Link to="/addToys">Add Toys</Link></li>
                     }

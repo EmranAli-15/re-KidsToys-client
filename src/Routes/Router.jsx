@@ -4,6 +4,7 @@ import PrimeLayout from "../Layout/PrimeLayout";
 import AddToys from "../components/AddToys/AddToys";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import AllToys from "../components/AllToys/AllToys";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: "/addToys",
                 element: <AddToys></AddToys>
+            },
+            {
+                path: "/allToys",
+                element: <AllToys></AllToys>
             },
             {
                 path: "/login",
