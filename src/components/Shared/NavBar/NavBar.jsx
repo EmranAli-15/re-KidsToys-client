@@ -25,14 +25,14 @@ const NavBar = () => {
                 <img className='md:h-10 h-6 cursor-pointer' src="https://i.ibb.co/hMVWVZT/logo.png" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal font-semibold text-gray-500 px-1">
+                <ul className="flex gap-x-6 font-semibold text-gray-500 px-1">
                     <li><Link>Home</Link></li>
                     <li><Link to="/allToys">All Toys</Link></li>
                     {
                         user && <li><Link to="/addToys">Add Toys</Link></li>
                     }
                     {
-                        user && <li><Link>My Toys</Link></li>
+                        user && <li><Link to="/myToys">My Toys</Link></li>
                     }
                     <li><Link>Blogs</Link></li>
                 </ul>
@@ -52,8 +52,8 @@ const NavBar = () => {
                     }
                 </label>
                 {
-                    user ? <button onClick={handleLogout} className="btn btn-xs">LogOut</button> :
-                        <button className="btn btn-xs"><Link to="/login">Login</Link></button>
+                    user ? <button onClick={handleLogout} className="btn my-btn-left text-gray-500 btn-xs">LogOut</button> :
+                        <button className="btn my-btn-right btn-xs"><Link to="/login">Login</Link></button>
                 }
             </div>
 
