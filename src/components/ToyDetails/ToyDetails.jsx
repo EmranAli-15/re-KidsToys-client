@@ -11,10 +11,10 @@ const ToyDetails = () => {
             <div className='md:flex items-center mb-6'>
                 <div className='md:w-1/2'>
                     {
-                        <img className='md:h-72 md:ml-10' src={photoURL} alt="" />
+                        <img className='md:h-72 px-16 md:ml-10' src={photoURL} alt="" />
                     }
                 </div>
-                <div className='md:w-1/2'>
+                <div className='md:w-1/2 md:ml-10'>
                     <h3 className='text-2xl'>Toy Name : {name}</h3>
                     <h3 className='text-2xl my-2'>Price : $ {price}</h3>
                     <h3 className='text-2xl'>Available Quantity : {quantity} pcs.</h3>
