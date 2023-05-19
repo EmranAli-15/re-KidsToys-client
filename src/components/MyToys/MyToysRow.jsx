@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
-const MyToysRow = ({ toys, handleSingleId }) => {
+const MyToysRow = ({ toys, handleUpdateId, handleDelete }) => {
     const { _id, name, photoURL, price } = toys;
     return (
         <tr>
@@ -18,12 +18,12 @@ const MyToysRow = ({ toys, handleSingleId }) => {
             <td>$ {price}</td>
             <td className='md:w-1/4 text-center'>
                 <div>
-                    <button onClick={() => handleSingleId(_id)}>
+                    <button onClick={() => handleUpdateId(_id)}>
                         <label htmlFor="my-modal-4" className="btn bg-transparent border-0 hover:bg-transparent">
                             <FaEdit className='text-green-500 h-6 w-7'></FaEdit>
                         </label>
                     </button>
-                    <button className="btn btn-ghost btn-xs">
+                    <button onClick={() => handleDelete(_id)} className="btn bg-transparent border-0 hover:bg-transparent">
                         <FaTrashAlt className='text-red-500 h-6 w-7'></FaTrashAlt>
                     </button>
                 </div>

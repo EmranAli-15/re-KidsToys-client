@@ -1,9 +1,10 @@
 import React from 'react';
 import Rating from 'react-rating';
 import { FaStar, FaStarHalf } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const CategoryCard = ({ category }) => {
-    const { name, price, photoURL, rating } = category;
+    const { _id, name, price, photoURL, rating } = category;
     return (
         <div className="card w-96 glass">
             <figure><img className='h-[230px] w-[230px] p-4' src={photoURL} alt="car!" /></figure>
@@ -21,7 +22,9 @@ const CategoryCard = ({ category }) => {
                         placeholderSymbol={<FaStar className='text-orange-400'></FaStar>}
                         fullSymbol={<FaStar></FaStar>}
                     />
-                    <button className="btn btn-sm border-0 hover:bg-[#FF3811] my-btn-bg">Details</button>
+                    <button className="btn btn-sm border-0 hover:bg-[#FF3811] my-btn-bg">
+                        <Link to={`/toyDetails/${_id}`}>Details</Link>
+                    </button>
                 </div>
             </div>
         </div>

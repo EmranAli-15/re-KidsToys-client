@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import login from '../../assets/login.svg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const { signInUser, loginWithGoogle } = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault();

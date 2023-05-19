@@ -15,7 +15,7 @@ const MyToys = () => {
             .then(data => setMyToys(data))
     }, [user, myToys]);
 
-    const handleSingleId = (id) => {
+    const handleUpdateId = (id) => {
         fetch(`http://localhost:5000/singleToy/${id}`)
             .then(res => res.json())
             .then(data => setToyData(data))
@@ -59,11 +59,37 @@ const MyToys = () => {
                             )
                         }
                     })
-
             }
         })
+    }
 
-
+    const handleDelete = (id) => {
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/deleteToy/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount === 1) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
 
@@ -92,7 +118,7 @@ const MyToys = () => {
                     </thead>
                     <tbody>
                         {
-                            myToys.map(toys => <MyToysRow handleSingleId={handleSingleId} key={toys._id} toys={toys}></MyToysRow>)
+                            myToys.map(toys => <MyToysRow handleUpdateId={handleUpdateId} handleDelete={handleDelete} key={toys._id} toys={toys}></MyToysRow>)
                         }
                     </tbody>
                 </table>
