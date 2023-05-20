@@ -12,10 +12,10 @@ const MyToys = () => {
     const { _id, price, quantity, details } = toyData
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userToy?email=${user?.email}`)
+        fetch(`http://localhost:5000/userToys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [user, myToys]);
+    }, [user]);
 
     const handleUpdateId = (id) => {
         fetch(`http://localhost:5000/singleToy/${id}`)
@@ -94,20 +94,30 @@ const MyToys = () => {
         })
     }
 
-
-    // const handleEdit = (event) => {
-    //     event.preventDefault()
-    //     const from = event.target;
-    //     const price = from.price.value;
-    //     const quantity = from.quantity.value;
-    //     const details = from.details.value;
-    //     const updated = { price, quantity, details }
-    //     console.log(updated);
-    // }
+    const handleSorting = (event) => {
+        const value = event.target.value;
+        let no;
+        if (value === 'low price') {
+            no = 1
+        }
+        else {
+            no = -1
+        }
+        fetch(`http://localhost:5000/sortToys?email=${user?.email}&sort=${no}`)
+            .then(res => res.json())
+            .then(data => setMyToys(data))
+    }
 
     return (
         <>
-            <div className="overflow-x-auto w-full my-8">
+            <div className='flex justify-end mt-4'>
+                <select onChange={handleSorting} className="select select-bordered select-sm">
+                    <option value='default'>Default</option>
+                    <option value='low price'>low Price</option>
+                    <option value='high price'>high price</option>
+                </select>
+            </div>
+            <div className="overflow-x-auto w-full mt-4 mb-8">
                 <table className="table w-full">
                     {/* head */}
                     <thead>
