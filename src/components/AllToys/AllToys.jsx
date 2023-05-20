@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AllToysRow from './AllToysRow';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const AllToys = () => {
+    useTitle('All Toys');
     const [toys, setToys] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [currentPage, setCurrentPage] = useState(0);
