@@ -43,13 +43,13 @@ const SubCategory = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid md:grid-cols-3'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid md:grid-cols-3 gap-8'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid md:grid-cols-3'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid md:grid-cols-3 gap-8'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid md:grid-cols-3'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid md:grid-cols-3 gap-8'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
             </Tabs>
         </div>

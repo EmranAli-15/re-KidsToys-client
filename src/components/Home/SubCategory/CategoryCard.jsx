@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const CategoryCard = ({ category }) => {
     const { _id, name, price, photoURL, rating } = category;
     return (
-        <div className="card w-96 glass">
-            <figure><img className='h-[230px] w-[230px] p-4' src={photoURL} alt="car!" /></figure>
+        <div className="card w-full glass" data-aos="zoom-in-up">
+            <figure><img className='h-[180px] w-[180px] p-4' src={photoURL} alt="car!" /></figure>
             <div className="card-body">
                 <div className='flex items-center justify-between'>
                     <h2 className='text-2xl font-semibold'>{name}</h2>

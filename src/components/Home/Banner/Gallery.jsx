@@ -12,12 +12,12 @@ const Gallery = () => {
             <h1 className='text-5xl font-semibold text-center mb-4'>
                 Our Rich Products
             </h1>
-            <div className='grid grid-cols-2 md:grid-cols-3 gap-8 text-center px-8'>
+            <div data-aos="zoom-in-up" className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center px-8'>
                 {
                     products.map((product, index) => 
                     <div key={index} className='border rounded-md'>
                         <div className='flex justify-center p-4'>
-                            <img className='h-20 md:h-40 w-40' src={product.img} alt="" />
+                            <img className='h-20 md:h-28 w-28' src={product.img} alt="" />
                         </div>
                         <h3 className='text-2xl font-medium'>{product.title}</h3>
                         <p className='text-lg mb-2'>Price : {product.price}</p>
