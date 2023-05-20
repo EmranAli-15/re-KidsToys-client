@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaStar, FaStarHalf } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { useLoaderData } from 'react-router-dom';
 
 const ToyDetails = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const toyDetails = useLoaderData();
     const { photoURL, name, price, details, seller, email, quantity, rating } = toyDetails;
     return (

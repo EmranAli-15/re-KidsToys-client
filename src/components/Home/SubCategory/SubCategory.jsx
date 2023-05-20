@@ -35,7 +35,7 @@ const SubCategory = () => {
         // selectedTabClassName='text-white rounded-md bg-blue-400'
         // className="text-center text-xl"
         <div className='mb-8'>
-            <h1 className='text-center text-5xl mb-6 font-serif font-semibold'>Shop by category</h1>
+            <h1 className='text-center text-5xl mb-6 font-serif font-semibold text-blue-500'>Shop by category</h1>
             <Tabs selectedTabClassName='my-btn-bg rounded-md text-white'>
                 <TabList className='text-center mb-8 text-gray-500 text-xl font-medium'>
                     <Tab onClick={() => handleCategory('Science Kits')}>Science Kits</Tab>
@@ -44,13 +44,13 @@ const SubCategory = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-2 px-2 md:grid-cols-3 gap-2 md:gap-8'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-2 md:gap-8'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-2 px-2 md:grid-cols-3 gap-2 md:gap-8'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-2 md:gap-8'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-2 px-2 md:grid-cols-3 gap-2 md:gap-8'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-2 md:gap-8'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
             </Tabs>
         </div>

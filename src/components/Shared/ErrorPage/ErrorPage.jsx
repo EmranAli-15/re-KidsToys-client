@@ -5,7 +5,7 @@ const ErrorPage = () => {
     const { error, status } = useRouteError()
     return (
         <div>
-            <img src="https://i.ibb.co/vw3HJRj/404page.jpg" alt="" />
+            <img src="https://i.ibb.co/NTZK81q/404.jpg" alt="" />
         </div>
     );
 };

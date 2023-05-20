@@ -15,7 +15,7 @@
     border-width: 0;
 }
 .active{
-    background-color: #FF3811;
+    background-color: rgb(59 130 246);
     color: white;
     border-radius: 8px;
     padding: 4px;

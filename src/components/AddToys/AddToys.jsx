@@ -47,13 +47,13 @@ const AddToys = () => {
                 <div className="form-control md:w-1/2">
                     <label className="input-group input-group-vertical">
                         <span>Toy Name</span>
-                        <input type="text" name="name" placeholder="Name" className="input input-bordered" />
+                        <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
                     </label>
                 </div>
                 <div className="form-control md:w-1/2">
                     <label className="input-group input-group-vertical">
                         <span>Toy Photo</span>
-                        <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" />
+                        <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" required />
                     </label>
                 </div>
             </div>
@@ -61,7 +61,7 @@ const AddToys = () => {
                 <div className="form-control md:w-1/2">
                     <label className="input-group input-group-vertical">
                         <span>Toy Price</span>
-                        <input type="text" name="price" placeholder="Price" className="input input-bordered" />
+                        <input type="text" name="price" placeholder="Price" className="input input-bordered" required />
                     </label>
                 </div>
                 <div className="form-control md:w-1/2">
@@ -79,13 +79,13 @@ const AddToys = () => {
                 <div className="form-control md:w-1/2">
                     <label className="input-group input-group-vertical">
                         <span>Toy Quantity</span>
-                        <input type="text" name="quantity" placeholder="Quantity" className="input input-bordered" />
+                        <input type="text" name="quantity" placeholder="Quantity" className="input input-bordered" required />
                     </label>
                 </div>
                 <div className="form-control md:w-1/2">
                     <label className="input-group input-group-vertical">
                         <span>Toy Rating</span>
-                        <input type="text" name="rating" placeholder="Rating" className="input input-bordered" />
+                        <input type="text" name="rating" placeholder="Rating" className="input input-bordered" required />
                     </label>
                 </div>
             </div>
@@ -103,8 +103,8 @@ const AddToys = () => {
                     </label>
                 </div>
             </div>
-            <textarea placeholder="Details about this toy" name="details" className="textarea textarea-bordered textarea-lg w-full" ></textarea>
-            <button className="btn btn-block my-8">SUBMIT</button>
+            <textarea placeholder="Details about this toy" name="details" className="textarea textarea-bordered textarea-lg w-full" required ></textarea>
+            <button className="btn btn-block bg-blue-500 hover:bg-[#FF3811] border-0 my-8">SUBMIT</button>
         </form>
     );
 };

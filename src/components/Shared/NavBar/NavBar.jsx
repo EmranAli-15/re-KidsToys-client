@@ -53,7 +53,7 @@ const NavBar = () => {
                 </label>
                 {
                     user ? <button onClick={handleLogout} className="btn my-btn-left text-gray-500 btn-xs">LogOut</button> :
-                        <button className="btn my-btn-right btn-xs"><NavLink to="/login">Login</NavLink></button>
+                        <button className="btn my-btn-right btn-xs"><Link to="/login">Login</Link></button>
                 }
             </div>
 
