@@ -12,13 +12,13 @@ const MyToys = () => {
     const { _id, price, quantity, details } = toyData
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userToys?email=${user?.email}`)
+        fetch(`https://toy-server-omega.vercel.app/userToys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user]);
 
     const handleUpdateId = (id) => {
-        fetch(`http://localhost:5000/singleToy/${id}`)
+        fetch(`https://toy-server-omega.vercel.app/singleToy/${id}`)
             .then(res => res.json())
             .then(data => setToyData(data))
     }
@@ -30,9 +30,7 @@ const MyToys = () => {
         const price = parseInt(from.price.value);
         const quantity = parseInt(from.quantity.value);
         const details = from.details.value;
-
         const updated = { price, quantity, details }
-        console.log(updated);
 
         Swal.fire({
             title: 'Are you sure?',
@@ -43,7 +41,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/updateToy/${_id}`, {
+                fetch(`https://toy-server-omega.vercel.app/updateToy/${_id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +75,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteToy/${id}`, {
+                fetch(`https://toy-server-omega.vercel.app/deleteToy/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -103,7 +101,7 @@ const MyToys = () => {
         else {
             no = -1
         }
-        fetch(`http://localhost:5000/sortToys?email=${user?.email}&sort=${no}`)
+        fetch(`https://toy-server-omega.vercel.app/sortToys?email=${user?.email}&sort=${no}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }
@@ -154,7 +152,7 @@ const MyToys = () => {
                         </div>
                         <textarea name="details" defaultValue={details ? details : ''} className="textarea textarea-bordered w-full" placeholder="Bio"></textarea>
                         <div className='text-right'>
-                            <input type="submit" value="Ok!" />
+                            <input className='my-btn-right px-1 cursor-pointer text-white rounded-md font-medium' type="submit" value="Ok!" />
                         </div>
                     </form>
                 </label>

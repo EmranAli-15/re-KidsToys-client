@@ -23,7 +23,7 @@ const AddToys = () => {
 
         const toyInfo = { name, photoURL, price, category, quantity, rating, seller, email, details };
         console.log(toyInfo);
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://toy-server-omega.vercel.app/addToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

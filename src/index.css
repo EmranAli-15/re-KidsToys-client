@@ -14,5 +14,11 @@
     background-color: #e4dddd80;
     border-width: 0;
 }
+.active{
+    background-color: #FF3811;
+    color: white;
+    border-radius: 8px;
+    padding: 4px;
+}
 
 /* bg-[#FF3811] */

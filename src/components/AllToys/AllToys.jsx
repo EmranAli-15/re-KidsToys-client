@@ -17,7 +17,7 @@ const AllToys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?page=${currentPage}&limit=${itemsPerPage}`)
+        fetch(`https://toy-server-omega.vercel.app/toys?page=${currentPage}&limit=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [currentPage, itemsPerPage]);
@@ -25,13 +25,13 @@ const AllToys = () => {
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/allToy')
+    //     fetch('https://toy-server-omega.vercel.app/allToy')
     //         .then(res => res.json())
     //         .then(data => setToys(data))
     // }, [])
 
     const handleSearch = (toyName) => {
-        fetch(`http://localhost:5000/toysSearch/${toyName}`)
+        fetch(`https://toy-server-omega.vercel.app/toysSearch/${toyName}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }

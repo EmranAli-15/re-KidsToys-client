@@ -9,11 +9,13 @@ import MyToys from "../components/MyToys/MyToys";
 import ToyDetails from "../components/ToyDetails/ToyDetails";
 import PrivetRoute from "./PrivetRoute";
 import Blogs from "../components/Blogs/Blogs";
+import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <PrimeLayout></PrimeLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path: "/allToys",
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/totalToys')
+                loader: () => fetch('https://toy-server-omega.vercel.app/totalToys')
             },
             {
                 path: "/myToys",
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: "/toyDetails/:id",
                 element: <PrivetRoute><ToyDetails></ToyDetails></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singleToy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-server-omega.vercel.app/singleToy/${params.id}`)
             },
             {
                 path: "/blogs",

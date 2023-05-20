@@ -20,7 +20,7 @@ const Blogs = () => {
             </section>
             <section className='my-12'>
                 <h3 className='text-2xl'><span className='font-bold'>2 :</span> Compare SQL and NoSQL databases</h3>
-                <p className='ml-10 text-xl mt-2'>
+                <div className='ml-10 text-xl mt-2'>
                     <span className='font-semibold underline'>Here are some difference between SQL and NoSQL database :</span> <br />
                     <ol className='list-disc mt-4'>
                         <li>SQL databases are relational, and NoSQL databases are non-relational.</li>
@@ -34,7 +34,7 @@ const Blogs = () => {
 
                         </li>
                     </ol>
-                </p>
+                </div>
             </section>
             <section>
                 <h3 className='text-2xl'><span className='font-bold'>3 :</span> What is express JS and node Js ?</h3>
@@ -47,7 +47,7 @@ const Blogs = () => {
             </section>
             <section className='mt-12'>
                 <h3 className='text-2xl'><span className='font-bold'>4 :</span> What is MongoDB aggregate and how does it work ?</h3>
-                <p className='ml-10 text-xl mt-2'>
+                <div className='ml-10 text-xl mt-2'>
                     In MongoDB, aggregation operations process the data records/documents and return computed results. It collects values from various documents and groups them together and then performs different types of operations on that grouped data like sum, average, minimum, maximum, etc to return a computed result. It is similar to the aggregate function of SQL. <br /> MongoDB provides three ways to perform aggregation.
                     <ul className='list-disc mt-4'>
                         <li>Aggregation pipeline
@@ -57,7 +57,7 @@ const Blogs = () => {
                         <li>Single-purpose aggregation
                         </li>
                     </ul>
-                </p>
+                </div>
             </section>
         </div>
     );

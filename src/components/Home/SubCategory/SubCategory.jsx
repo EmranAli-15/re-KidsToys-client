@@ -11,13 +11,13 @@ const SubCategory = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/categoryToy/${'Science Kits'}`)
+        fetch(`https://toy-server-omega.vercel.app/categoryToy/${'Science Kits'}`)
             .then(res => res.json())
             .then(data => setScience(data))
     }, [])
 
     const handleCategory = (category) => {
-        fetch(`http://localhost:5000/categoryToy/${category}`)
+        fetch(`https://toy-server-omega.vercel.app/categoryToy/${category}`)
             .then(res => res.json())
             .then(data => {
                 if (category === 'Science Kits') {
@@ -35,6 +35,7 @@ const SubCategory = () => {
         // selectedTabClassName='text-white rounded-md bg-blue-400'
         // className="text-center text-xl"
         <div className='mb-8'>
+            <h1 className='text-center text-5xl mb-6 font-serif font-semibold'>Shop by category</h1>
             <Tabs selectedTabClassName='my-btn-bg rounded-md text-white'>
                 <TabList className='text-center mb-8 text-gray-500 text-xl font-medium'>
                     <Tab onClick={() => handleCategory('Science Kits')}>Science Kits</Tab>
