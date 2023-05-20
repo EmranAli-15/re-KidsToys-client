@@ -5,29 +5,29 @@ import CategoryCard from './CategoryCard';
 
 const SubCategory = () => {
 
-    const [civil, setCivil] = useState([]);
-    const [chemistry, setChemistry] = useState([]);
-    const [physics, setPhysics] = useState([]);
+    const [science, setScience] = useState([]);
+    const [engineering, setEngineering] = useState([]);
+    const [math, setMath] = useState([]);
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/categoryToy/${'Civil Engineering'}`)
+        fetch(`http://localhost:5000/categoryToy/${'Science Kits'}`)
             .then(res => res.json())
-            .then(data => setCivil(data))
+            .then(data => setScience(data))
     }, [])
 
     const handleCategory = (category) => {
         fetch(`http://localhost:5000/categoryToy/${category}`)
             .then(res => res.json())
             .then(data => {
-                if (category === 'Civil Engineering') {
-                    setCivil(data);
+                if (category === 'Science Kits') {
+                    setScience(data);
                 }
-                if (category === 'Chemistry Equipment') {
-                    setChemistry(data);
+                if (category === 'Math Learning Toys') {
+                    setEngineering(data);
                 }
-                if (category === 'Physics Equipment') {
-                    setPhysics(data);
+                if (category === 'Engineering Tools') {
+                    setMath(data);
                 }
             })
     }
@@ -37,19 +37,19 @@ const SubCategory = () => {
         <div className='mb-8'>
             <Tabs selectedTabClassName='my-btn-bg rounded-md text-white'>
                 <TabList className='text-center mb-8 text-gray-500 text-xl font-medium'>
-                    <Tab onClick={() => handleCategory('Civil Engineering')}>Civil Engineering</Tab>
-                    <Tab onClick={() => handleCategory('Chemistry Equipment')}>Chemistry Equipment</Tab>
-                    <Tab onClick={() => handleCategory('Physics Equipment')}>Physics Equipment</Tab>
+                    <Tab onClick={() => handleCategory('Science Kits')}>Science Kits</Tab>
+                    <Tab onClick={() => handleCategory('Math Learning Toys')}>Math Learning Toys</Tab>
+                    <Tab onClick={() => handleCategory('Engineering Tools')}>Engineering Tools</Tab>
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid md:grid-cols-3'>{civil.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid md:grid-cols-3'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid md:grid-cols-3'>{chemistry.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid md:grid-cols-3'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid md:grid-cols-3'>{physics.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid md:grid-cols-3'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
             </Tabs>
         </div>

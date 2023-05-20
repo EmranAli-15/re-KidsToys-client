@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToys = () => {
     const { user } = useContext(AuthContext);
@@ -28,7 +29,13 @@ const AddToys = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Product Added!',
+                        'Happy Store!',
+                        'success'
+                      )
+                }
             })
     }
     return (
@@ -58,9 +65,9 @@ const AddToys = () => {
                     <label className="input-group input-group-vertical">
                         <span>Toy Category</span>
                         <select name="category" className="select select-bordered w-full">
-                            <option>Civil Engineering</option>
-                            <option>Chemistry Equipment</option>
-                            <option>Physics Equipment</option>
+                            <option>Science Kits</option>
+                            <option>Math Learning Toys</option>
+                            <option>Engineering Tools</option>
                         </select>
                     </label>
                 </div>
