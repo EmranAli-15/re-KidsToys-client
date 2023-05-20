@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import login from '../../assets/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { createUser, updateUser, loginWithGoogle } = useContext(AuthContext);
+    const { createUser, updateUser, loginWithGoogle, logOut } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleRegister = event => {
         event.preventDefault();
         const from = event.target;
@@ -14,21 +17,33 @@ const Register = () => {
         const photo = from.photo.value;
         const email = from.email.value;
         const password = from.password.value;
+        setError('');
 
         createUser(email, password)
             .then(result => {
                 updateUser(result.user, name, photo)
-                    .then(result => console.log(result.user))
-                    .catch(error => console.log(error.message))
+                    .then(result => {
+                        navigate('/login');
+                        logOut()
+                            .then(result => {
+                                Swal.fire(
+                                    'Welcome!',
+                                    'Account successfully created!',
+                                    'success'
+                                )
+                            })
+                            .catch(error => { })
+                    })
+                    .catch(error => { })
             })
-            .catch(error => console.log(error.message))
-
-        console.log(email, password, name, photo);
+            .catch(error => {
+                setError('Password must be at least 6 digit!')
+            })
     }
     const handleGoogleLogin = () => {
         loginWithGoogle()
-            .then(result => { console.log(result.user); })
-            .catch(error => { console.log(error.message); })
+            .then(result => { })
+            .catch(error => { })
     }
     return (
         <div className="hero min-h-screen md:flex bg-base-200">
@@ -40,29 +55,30 @@ const Register = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleRegister}>
+                            <p className='text-red-600 text-center font-semibold text-md'>{error}</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name="name" placeholder="name" className="input input-bordered" />
+                                <input type="text" name="name" placeholder="name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo</span>
                                 </label>
-                                <input type="text" name="photo" placeholder="photo url" className="input input-bordered" />
+                                <input type="text" name="photo" placeholder="photo url" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>

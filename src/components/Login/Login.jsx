@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import login from '../../assets/login.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ const Login = () => {
         window.scrollTo(0, 0);
     }, []);
     const { signInUser, loginWithGoogle } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const fromPath = location.state?.from?.pathname || "/";
@@ -19,10 +20,13 @@ const Login = () => {
 
         const email = from.email.value;
         const password = from.password.value;
+        setError('');
 
         signInUser(email, password)
             .then(result => { navigate(fromPath, { replace: true }); })
-            .catch(error => { })
+            .catch(error => { 
+                setError('Email or Password is wrong!!')
+             })
 
         console.log(email, password);
     }
@@ -41,6 +45,7 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleLogin} >
+                            <p className='text-red-600 text-center font-semibold text-md'>{error}</p>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
