@@ -27,8 +27,8 @@ const MyToys = () => {
         event.preventDefault()
         const from = event.target;
 
-        const price = from.price.value;
-        const quantity = from.quantity.value;
+        const price = parseInt(from.price.value);
+        const quantity = parseInt(from.quantity.value);
         const details = from.details.value;
 
         const updated = { price, quantity, details }

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import login from '../../assets/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
@@ -9,6 +9,10 @@ const Login = () => {
         window.scrollTo(0, 0);
     }, []);
     const { signInUser, loginWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const fromPath = location.state?.from?.pathname || "/";
+
     const handleLogin = event => {
         event.preventDefault();
         const from = event.target;
@@ -17,15 +21,15 @@ const Login = () => {
         const password = from.password.value;
 
         signInUser(email, password)
-            .then(result => console.log(result.user))
-            .catch(error => console.log(error.message))
+            .then(result => { navigate(fromPath, { replace: true }); })
+            .catch(error => { })
 
         console.log(email, password);
     }
     const handleGoogleLogin = () => {
         loginWithGoogle()
-            .then(result => { console.log(result.user); })
-            .catch(error => { console.log(error.message); })
+            .then(result => { navigate(fromPath, { replace: true }); })
+            .catch(error => { })
     }
     return (
         <div className="hero min-h-screen md:flex bg-base-200">

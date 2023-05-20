@@ -12,13 +12,14 @@ const AddToys = () => {
 
         const name = from.name.value;
         const photoURL = from.photoURL.value;
-        const price = from.price.value;
         const category = from.category.value;
-        const quantity = from.quantity.value;
-        const rating = from.rating.value;
+        const price = parseInt(from.price.value);
+        const quantity = parseInt(from.quantity.value);
+        const rating = parseInt(from.rating.value);
         const seller = from.seller.value;
         const email = from.email.value;
         const details = from.details.value;
+        console.log(price, quantity, rating);
 
         const toyInfo = { name, photoURL, price, category, quantity, rating, seller, email, details };
         console.log(toyInfo);
@@ -36,7 +37,7 @@ const AddToys = () => {
                         'Product Added!',
                         'Happy Store!',
                         'success'
-                      )
+                    )
                 }
             })
     }

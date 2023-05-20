@@ -5,13 +5,13 @@ import Loading from '../components/Shared/Loading/Loading';
 
 const PrivetRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
     if (user) {
         return children
     }
-    return <Navigate to="/login"></Navigate>
+    return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
 };
 
 export default PrivetRoute;
