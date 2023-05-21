@@ -11,13 +11,13 @@ const SubCategory = () => {
 
 
     useEffect(() => {
-        fetch(`https://toy-server-omega.vercel.app/categoryToy/${'Science Kits'}`)
+        fetch(`https://toy-server-omega.vercel.app/categoryToys/${'Science Kits'}`)
             .then(res => res.json())
             .then(data => setScience(data))
     }, [])
 
     const handleCategory = (category) => {
-        fetch(`https://toy-server-omega.vercel.app/categoryToy/${category}`)
+        fetch(`https://toy-server-omega.vercel.app/categoryToys/${category}`)
             .then(res => res.json())
             .then(data => {
                 if (category === 'Science Kits') {
@@ -35,22 +35,22 @@ const SubCategory = () => {
         // selectedTabClassName='text-white rounded-md bg-blue-400'
         // className="text-center text-xl"
         <div className='mb-8'>
-            <h1 className='text-center text-5xl mb-6 font-serif font-semibold text-blue-500'>Shop by category</h1>
+            <h1 className='text-center text-3xl md:text-5xl mb-6 font-serif font-semibold text-blue-500'>Shop by category</h1>
             <Tabs selectedTabClassName='my-btn-bg rounded-md text-white'>
-                <TabList className='text-center mb-8 text-gray-500 text-xl font-medium'>
+                <TabList className='text-center mb-8 text-gray-500 md:text-xl font-medium'>
                     <Tab onClick={() => handleCategory('Science Kits')}>Science Kits</Tab>
                     <Tab onClick={() => handleCategory('Math Learning Toys')}>Math Learning Toys</Tab>
                     <Tab onClick={() => handleCategory('Engineering Tools')}>Engineering Tools</Tab>
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-2 md:gap-8'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-4 md:gap-8'>{science.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-2 md:gap-8'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-4 md:gap-8'>{engineering.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-2 md:gap-8'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
+                    <div className='grid grid-cols-2 px-2 md:grid-cols-4 gap-4 md:gap-8'>{math.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)}</div>
                 </TabPanel>
             </Tabs>
         </div>

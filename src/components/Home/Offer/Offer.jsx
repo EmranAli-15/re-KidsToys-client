@@ -8,10 +8,10 @@ const Offer = () => {
             </div>
             <div className='w-1/2'>
                 <div className='md:flex justify-center'>
-                    <h1 className='md:text-5xl text-2xl font-serif font-semibold text-blue-500 tracking-widest'>Final Offer For <br /> Summer !!</h1>
+                    <h1 className='md:text-5xl text-lg font-serif font-semibold text-blue-500 tracking-widest'>Final Offer For <br /> Summer !!</h1>
                 </div>
                 <div className='text-center mt-4 -rotate-[20deg]'>
-                    <button className='btn my-btn-right'>shop now</button>
+                    <button className='btn my-btn-right btn-sm hover:bg-blue-500'>shop now</button>
                 </div>
             </div>
         </div>

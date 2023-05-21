@@ -17,18 +17,10 @@ const AllToys = () => {
 
 
     useEffect(() => {
-        fetch(`https://toy-server-omega.vercel.app/toys?page=${currentPage}&limit=${itemsPerPage}`)
+        fetch(`https://toy-server-omega.vercel.app/toysLimit?page=${currentPage}&limit=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [currentPage, itemsPerPage]);
-
-
-
-    // useEffect(() => {
-    //     fetch('https://toy-server-omega.vercel.app/allToy')
-    //         .then(res => res.json())
-    //         .then(data => setToys(data))
-    // }, [])
 
     const handleSearch = (toyName) => {
         fetch(`https://toy-server-omega.vercel.app/toysSearch/${toyName}`)

@@ -22,11 +22,13 @@ const NavBar = () => {
                         <li><Link>All Toys</Link></li>
                     </ul>
                 </div>
-                <img className='md:h-10 h-6 cursor-pointer' src="https://i.ibb.co/hMVWVZT/logo.png" alt="" />
+                    <Link to="/">
+                        <img className='md:h-10 h-6 cursor-pointer' src="https://i.ibb.co/hMVWVZT/logo.png" alt="" />
+                    </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-x-6 font-semibold text-gray-500 px-1">
-                <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
+                    <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
                     <li><NavLink to="/allToys" className={({ isActive }) => (isActive ? 'active' : '')}>All Toys</NavLink></li>
                     {
                         user && <li><NavLink to="/addToys" className={({ isActive }) => (isActive ? 'active' : '')}>Add Toys</NavLink></li>

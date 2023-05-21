@@ -7,15 +7,16 @@ import useTitle from '../../hooks/useTitle';
 const MyToys = () => {
     useTitle('My Toys')
     const [myToys, setMyToys] = useState([]);
+    const [updateDependency, setUpdateDependency] = useState(0);
     const { user } = useContext(AuthContext);
     const [toyData, setToyData] = useState({});
-    const { _id, price, quantity, details } = toyData
+    const { _id, name, price, quantity, details } = toyData
 
     useEffect(() => {
         fetch(`https://toy-server-omega.vercel.app/userToys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [user]);
+    }, [user, updateDependency]);
 
     const handleUpdateId = (id) => {
         fetch(`https://toy-server-omega.vercel.app/singleToy/${id}`)
@@ -27,10 +28,11 @@ const MyToys = () => {
         event.preventDefault()
         const from = event.target;
 
+        const name = from.name.value;
         const price = parseInt(from.price.value);
         const quantity = parseInt(from.quantity.value);
         const details = from.details.value;
-        const updated = { price, quantity, details }
+        const updated = { price, quantity, details, name }
 
         Swal.fire({
             title: 'Are you sure?',
@@ -58,6 +60,13 @@ const MyToys = () => {
                                 'success'
                             )
                         }
+                        from.reset();
+                        if (updateDependency === 1) {
+                            setUpdateDependency(0);
+                        }
+                        else {
+                            setUpdateDependency(1);
+                        }
                     })
             }
         })
@@ -81,6 +90,8 @@ const MyToys = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount === 1) {
+                            const remaining = myToys.filter(toys => toys._id !== id);
+                            setMyToys(remaining);
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
@@ -138,19 +149,25 @@ const MyToys = () => {
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
                     <form onSubmit={handleUpdate}>
+                        <div className="form-control mb-6">
+                            <label className="input-group">
+                                <span className='w-32'>Name</span>
+                                <input type="text" name="name" defaultValue={name} className="input input-bordered" />
+                            </label>
+                        </div>
                         <div className="form-control">
                             <label className="input-group">
                                 <span className='w-32'>Price</span>
-                                <input type="text" name="price" defaultValue={price ? price : ''} className="input input-bordered" />
+                                <input type="text" name="price" defaultValue={price} className="input input-bordered" />
                             </label>
                         </div>
                         <div className="form-control my-6">
                             <label className="input-group">
                                 <span className='w-32'>Quantity</span>
-                                <input type="text" name="quantity" defaultValue={quantity ? quantity : ''} className="input input-bordered" />
+                                <input type="text" name="quantity" defaultValue={quantity} className="input input-bordered" />
                             </label>
                         </div>
-                        <textarea name="details" defaultValue={details ? details : ''} className="textarea textarea-bordered w-full" placeholder="Bio"></textarea>
+                        <textarea name="details" defaultValue={details} className="textarea textarea-bordered w-full" placeholder="Bio"></textarea>
                         <div className='text-right'>
                             <input className='btn btn-sm bg-blue-500 hover:bg-[#FF3811] border-0' type="submit" value="Ok!" />
                         </div>

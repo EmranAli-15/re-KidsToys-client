@@ -19,10 +19,8 @@ const AddToys = () => {
         const seller = from.seller.value;
         const email = from.email.value;
         const details = from.details.value;
-        console.log(price, quantity, rating);
 
         const toyInfo = { name, photoURL, price, category, quantity, rating, seller, email, details };
-        console.log(toyInfo);
         fetch('https://toy-server-omega.vercel.app/addToy', {
             method: 'POST',
             headers: {
