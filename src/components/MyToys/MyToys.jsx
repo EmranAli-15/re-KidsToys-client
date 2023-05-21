@@ -152,7 +152,7 @@ const MyToys = () => {
                         </div>
                         <textarea name="details" defaultValue={details ? details : ''} className="textarea textarea-bordered w-full" placeholder="Bio"></textarea>
                         <div className='text-right'>
-                            <input className='my-btn-right px-1 cursor-pointer text-white rounded-md font-medium' type="submit" value="Ok!" />
+                            <input className='btn btn-sm bg-blue-500 hover:bg-[#FF3811] border-0' type="submit" value="Ok!" />
                         </div>
                     </form>
                 </label>
