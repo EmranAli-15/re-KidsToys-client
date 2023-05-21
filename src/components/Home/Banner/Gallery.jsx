@@ -9,7 +9,7 @@ const Gallery = () => {
     }, [])
     return (
         <div className='my-16'>
-            <h1 className='text-5xl font-serif text-blue-500 font-semibold text-center mb-4'>
+            <h1 className='text-3xl md:text-5xl font-serif text-blue-500 font-semibold text-center mb-4'>
                 Our BestSellers
             </h1>
             <div data-aos="zoom-in-up" className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center px-8'>

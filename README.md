@@ -2,7 +2,7 @@
 This is Toy website. Here you can find all educational toys for kids.
 
 # Live link
-Website link -> [Food Zone](https://toystore-61825.web.app/)
+Website link -> [KidsToys](https://toystore-61825.web.app/)
 
 # Website feature
 This website has multiple features. First of all you can see all toys.
