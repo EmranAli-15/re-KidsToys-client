@@ -18,7 +18,7 @@ const AllToysRow = ({ toy }) => {
             </td>
             <td>{seller}</td>
             <th>
-                <button className="btn my-btn-right btn-xs">
+                <button className="btn my-btn-bg btn-xs">
                     <Link to={`/toyDetails/${_id}`}>Details</Link>
                 </button>
             </th>

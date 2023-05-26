@@ -10,8 +10,12 @@ const CategoryCard = ({ category }) => {
             <figure><img className='md:h-[180px] h-[110px] w-[110px] md:w-[180px] p-4' src={photoURL} alt="car!" /></figure>
             <div className="h-[100px] relative">
                 <div className='md:flex items-center justify-between px-2'>
-                    <h2 className='text-lg md:text-2xl font-semibold'>{name}</h2>
-                    <h2 className='md:text-xl'>Price : ${price}</h2>
+                    <h2 className='md:text-lg font-semibold'>
+                        {
+                            name.length > 10 ? <div>{name.slice(0, 10)}...</div> : name
+                        }
+                    </h2>
+                    <h2 className='text-xs md:text-sm'>Price : $ {price}</h2>
                 </div>
                 <hr className='my-2' />
                 <div className="absolute bottom-3 w-full px-2">

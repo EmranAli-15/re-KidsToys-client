@@ -63,7 +63,7 @@ const AllToys = () => {
             <div className='text-center mb-8'>
                 {
                     pageNumbers.map(number =>
-                        <button className={` btn mx-1 bg-blue-500 border-0 ${currentPage === number ? 'my-btn-right' : ''}`}
+                        <button className={` btn mx-1 bg-blue-500 border-0 ${currentPage === number ? 'my-btn-bg' : ''}`}
                             key={number}
                             onClick={() => setCurrentPage(number)}
                         >{number + 1}

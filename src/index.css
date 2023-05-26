@@ -7,7 +7,7 @@
     border-width: 0;
 }
 .my-btn-bg {
-    background-color: #FF3811;
+    background-color: #65dbb0;
     border-width: 0;
 }
 .my-btn-left {
@@ -15,7 +15,7 @@
     border-width: 0;
 }
 .active{
-    background-color: rgb(59 130 246);
+    background-color: #65dbb0;
     color: white;
     border-radius: 8px;
     padding: 4px;
